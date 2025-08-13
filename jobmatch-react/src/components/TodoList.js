@@ -32,44 +32,28 @@ function TodoList() {
   }, [initialTasks]);
 
   // Add new todo
-  const addTodo = async () => {
-    if (newTodo.trim() === '') return;
-
-    //try {
-      // Simulate API call
-      //const response = await axios.post('https://jsonplaceholder.typicode.com/todos', {
-        //title: newTodo,
-        //completed: false，
-        //userId: 1
-     //});
-
-      // Add to local state with realistic structure
-      const newTodoItem = {
-        id: Date.now(), // Use timestamp for unique ID
-        text: newTodo,
-        completed: false,
-        category: 'custom',
-        priority: 'medium',
-        createdAt: new Date().toISOString()
-      };
-
-      setTodos(prev => [newTodoItem, ...prev]);
-      setNewTodo('');
-    } catch (error) {
-      console.error('Error adding todo:', error);
-      // Add to local state even if API fails
-      const newTodoItem = {
-        id: Date.now(),
-        text: newTodo,
-        completed: false,
-        category: 'custom',
-        priority: 'medium',
-        createdAt: new Date().toISOString()
-      };
-      setTodos(prev => [newTodoItem, ...prev]);
-      setNewTodo('');
-    }
+ const addTodo = async () => {
+  if (newTodo.trim() === '') return;
+  
+  // Simulate API call
+  //const response = await axios.post('https://jsonplaceholder.typicode.com/todos', {
+  //  title: newTodo,
+  //  completed: false,
+  //  userId: 1
+  //});
+  
+  // Add to local state with realistic structure
+  const newTodoItem = {
+    id: Date.now(), // Use timestamp for unique ID
+    text: newTodo,
+    completed: false,
+    category: 'custom',
+    priority: 'medium',
+    createdAt: new Date().toISOString()
   };
+  setTodos(prev => [newTodoItem, ...prev]);
+  setNewTodo('');
+};
 
   // Toggle todo completion
   const toggleTodo = (id) => {
@@ -357,5 +341,6 @@ function TodoList() {
 
 
 export default TodoList;
+
 
 
