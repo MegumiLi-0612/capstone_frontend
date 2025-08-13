@@ -5,7 +5,7 @@ function TodoList() {
   const [todos, setTodos] = useState([]);
   const [newTodo, setNewTodo] = useState('');
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  //const [error, setError] = useState('');
 
   // Initial job search tasks
   const initialTasks = [
@@ -29,7 +29,7 @@ function TodoList() {
       setTodos(initialTasks);
       setLoading(false);
     }, 1000);
-  }, []);
+  }, [initialTasks]);
 
   // Add new todo
   const addTodo = async () => {
@@ -37,7 +37,7 @@ function TodoList() {
 
     try {
       // Simulate API call
-      const response = await axios.post('https://jsonplaceholder.typicode.com/todos', {
+      //const response = await axios.post('https://jsonplaceholder.typicode.com/todos', {
         title: newTodo,
         completed: false,
         userId: 1
@@ -354,5 +354,6 @@ function TodoList() {
     </div>
   );
 }
+
 
 export default TodoList;
