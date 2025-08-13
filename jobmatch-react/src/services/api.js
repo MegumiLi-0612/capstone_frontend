@@ -2,8 +2,7 @@
 import axios from 'axios';
 
 // API 基础 URL
-const API_BASE_URL = 'http://localhost:3000/api/v1';
-
+const API_BASE_URL = 'https://backend-production-1d95.up.railway.app/api/v1';
 // 创建 axios 实例
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -74,5 +73,6 @@ export const taskAPI = {
   deleteTask: (id) => api.delete(`/tasks/${id}`),
   toggleTask: (id) => api.patch(`/tasks/${id}/toggle`)
 };
+
 
 export default api;
