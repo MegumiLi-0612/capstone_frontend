@@ -35,13 +35,13 @@ function TodoList() {
   const addTodo = async () => {
     if (newTodo.trim() === '') return;
 
-    try {
+    //try {
       // Simulate API call
       //const response = await axios.post('https://jsonplaceholder.typicode.com/todos', {
         //title: newTodo,
         //completed: false，
         //userId: 1
-      });
+     //});
 
       // Add to local state with realistic structure
       const newTodoItem = {
@@ -357,4 +357,5 @@ function TodoList() {
 
 
 export default TodoList;
+
 
