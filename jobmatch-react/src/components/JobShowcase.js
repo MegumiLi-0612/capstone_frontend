@@ -14,8 +14,8 @@ function JobShowcase() {
   });
 
   useEffect(() => {
-    fetchJobs();
-  }, [filters]);
+  fetchJobs();
+}, [fetchJobs]);
 
   const fetchJobs = async () => {
     try {
@@ -350,7 +350,7 @@ function JobShowcase() {
           </p>
           <button
             onClick={async () => {
-              const employerToken = localStorage.getItem('token');
+              //const employerToken = localStorage.getItem('token');
               const userType = localStorage.getItem('userType');
               
               if (userType !== 'employer') {
@@ -397,5 +397,6 @@ function JobShowcase() {
     </div>
   );
 }
+
 
 export default JobShowcase;
