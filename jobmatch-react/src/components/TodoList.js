@@ -38,9 +38,9 @@ function TodoList() {
     try {
       // Simulate API call
       //const response = await axios.post('https://jsonplaceholder.typicode.com/todos', {
-        title: newTodo,
-        completed: false,
-        userId: 1
+        //title: newTodo,
+        //completed: false，
+        //userId: 1
       });
 
       // Add to local state with realistic structure
@@ -357,3 +357,4 @@ function TodoList() {
 
 
 export default TodoList;
+
