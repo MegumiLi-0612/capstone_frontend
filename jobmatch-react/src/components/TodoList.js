@@ -5,7 +5,7 @@ function TodoList() {
   const [todos, setTodos] = useState([]);
   const [newTodo, setNewTodo] = useState('');
   const [loading, setLoading] = useState(false);
-  //const [error, setError] = useState('');
+  const [error, setError] = useState('');
 
   // Initial job search tasks
   const initialTasks = [
@@ -341,6 +341,7 @@ function TodoList() {
 
 
 export default TodoList;
+
 
 
 
