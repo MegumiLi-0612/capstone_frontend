@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import JobCard from './JobCard';
 import { jobAPI } from '../services/api';
 
@@ -13,11 +13,8 @@ function JobShowcase() {
     search: ''
   });
 
-  useEffect(() => {
-  fetchJobs();
-}, [fetchJobs]);
-
-  const fetchJobs = async () => {
+  // 将fetchJobs移到useEffect之前，并使用useCallback包装
+  const fetchJobs = useCallback(async () => {
     try {
       setLoading(true);
       setError(null);
@@ -45,7 +42,11 @@ function JobShowcase() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [filters]); // 依赖filters而不是fetchJobs
+
+  useEffect(() => {
+    fetchJobs();
+  }, [fetchJobs]);
 
   const handleApply = async (jobId) => {
     console.log(`Applied to job ID: ${jobId}`);
@@ -397,6 +398,5 @@ function JobShowcase() {
     </div>
   );
 }
-
 
 export default JobShowcase;
