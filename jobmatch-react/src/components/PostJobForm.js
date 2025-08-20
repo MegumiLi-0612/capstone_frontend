@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // ✅ 添加这一行
+import { useNavigate } from 'react-router-dom';
 import { jobAPI } from '../services/api';
 import '../styles/PostJobForm.css';
 
 function PostJobForm() {
-  const navigate = useNavigate(); // ✅ 添加这一行
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     title: '',
+    company: '',
     description: '',
     location: '',
     type: 'Full-time',
@@ -27,14 +28,13 @@ function PostJobForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
   
-    // 校验最大薪资必须大于最小薪资
+    // Validate that maximum salary must be greater than minimum salary
     if (formData.salaryMin && formData.salaryMax && Number(formData.salaryMax) <= Number(formData.salaryMin)) {
       alert("Maximum salary must be greater than minimum salary.");
       return;
     }
   
     try {
-      // 补充必填字段，并移除空字符串可选字段，避免后端 numeric 校验报错
       const raw = { ...formData, workType: 'On-site' };
       const payload = Object.fromEntries(
         Object.entries(raw).filter(([_, v]) => v !== '' && v !== null && v !== undefined)
@@ -42,7 +42,7 @@ function PostJobForm() {
       const res = await jobAPI.createJob(payload);
       console.log("Submitting Job:", res?.data || payload);
       alert("Job posted successfully!");
-      navigate('/jobs'); // ✅ 成功后跳转
+      navigate('/jobs');
     } catch (error) {
       console.error("Error posting job:", error);
       const msg = error?.response?.data?.message || error?.response?.data?.error || error?.message || 'Failed to post job.';
@@ -55,6 +55,7 @@ function PostJobForm() {
       <h2 className="post-job-title">Post a New Job</h2>
       <form onSubmit={handleSubmit} className="post-job-form">
         <input className="input-field" name="title" placeholder="Job Title" value={formData.title} onChange={handleChange} required />
+        <input className="input-field" name="company" placeholder="Company Name" value={formData.company} onChange={handleChange} required />
         <textarea className="input-field" name="description" placeholder="Description" value={formData.description} onChange={handleChange} required />
         <input className="input-field" name="location" placeholder="Location" value={formData.location} onChange={handleChange} required />
         
@@ -90,4 +91,3 @@ function PostJobForm() {
 }
 
 export default PostJobForm;
-
