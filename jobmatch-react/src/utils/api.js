@@ -87,6 +87,17 @@ const mockJobsAPI = {
       console.error('Failed to create job:', error);
       throw error;
     }
+  },
+
+  // Delete job (mock)
+  deleteJob: async (id) => {
+    try {
+      await api.delete(`/posts/${id}`);
+      return true;
+    } catch (error) {
+      console.error('Failed to delete job:', error);
+      throw error;
+    }
   }
 };
 
