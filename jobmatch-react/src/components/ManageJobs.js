@@ -330,7 +330,6 @@ const ManageJobs = () => {
                       </div>
                       
                             <div className="application-details">
-                        <p><strong>Phone:</strong> {app.student?.phone || '-'}</p>
                         <p><strong>Email:</strong> {app.student?.email || '-'}</p>
                    
                       </div>
