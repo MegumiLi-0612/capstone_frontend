@@ -11,8 +11,8 @@ const config = {
   
   // 生产环境
   production: {
-    API_BASE_URL: 'https://backend-production-1d95.up.railway.app/api/v1',
-    UPLOAD_BASE_URL: 'https://backend-production-1d95.up.railway.app',
+    API_BASE_URL: '/api/v1',
+    UPLOAD_BASE_URL: '/',
     FRONTEND_URL: 'https://capstonefrontend-production-4fdf.up.railway.app'
   }
 };
@@ -39,4 +39,5 @@ export const isDevelopment = getCurrentEnvironment() === 'development';
 export const isProduction = getCurrentEnvironment() === 'production';
 
 export default currentConfig;
+
 
