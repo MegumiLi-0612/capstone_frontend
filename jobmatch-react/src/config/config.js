@@ -4,9 +4,9 @@
 const config = {
   // 开发环境
   development: {
-    API_BASE_URL: 'http://localhost:5000/api/v1',
-    UPLOAD_BASE_URL: 'http://localhost:5000',
-    FRONTEND_URL: 'http://localhost:3000'
+    API_BASE_URL: 'https://backend-production-1d95.up.railway.app/api/v1',
+    UPLOAD_BASE_URL: 'https://backend-production-1d95.up.railway.app',
+    FRONTEND_URL: 'https://capstonefrontend-production-4fdf.up.railway.app'
   },
   
   // 生产环境
@@ -39,3 +39,4 @@ export const isDevelopment = getCurrentEnvironment() === 'development';
 export const isProduction = getCurrentEnvironment() === 'production';
 
 export default currentConfig;
+
