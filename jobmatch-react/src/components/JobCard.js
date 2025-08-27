@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { applicationAPI } from '../services/api';
 import JobApplicationForm from './JobApplicationForm';
 
 function JobCard({ job, onApply }) {
@@ -367,5 +366,6 @@ function JobCard({ job, onApply }) {
     </div>
   );
 }
+
 
 export default JobCard;
