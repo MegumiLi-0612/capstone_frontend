@@ -332,9 +332,6 @@ const ManageJobs = () => {
                       <div className="application-details">
                         <p><strong>Phone:</strong> {app.student?.phone || '-'}</p>
                         <p><strong>Email:</strong> {app.student?.email || '-'}</p>
-                        <p><strong>University:</strong> {app.student?.university || '-'}</p>
-                        <p><strong>Major:</strong> {app.student?.major || '-'}</p>
-                        <p><strong>GPA:</strong> {app.student?.gpa || '-'}</p>
                         <p><strong>Graduation Date:</strong> {app.student?.graduationDate ? new Date(app.student.graduationDate).toLocaleDateString() : '-'}</p>
                         {app.coverLetter && <p><strong>Cover Letter:</strong> {app.coverLetter}</p>}
                       </div>
