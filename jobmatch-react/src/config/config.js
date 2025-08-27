@@ -18,13 +18,7 @@ const config = {
 
 // 获取当前环境
 const getCurrentEnvironment = () => {
-  // 检查是否在开发环境
-  if (process.env.NODE_ENV === 'development' || 
-      window.location.hostname === 'localhost' || 
-      window.location.hostname === '127.0.0.1') {
-    return 'development';
-  }
-  return 'production';
+   return 'production';
 };
 
 // 导出当前环境的配置
@@ -38,6 +32,7 @@ export const isDevelopment = getCurrentEnvironment() === 'development';
 export const isProduction = getCurrentEnvironment() === 'production';
 
 export default currentConfig;
+
 
 
 
