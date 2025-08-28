@@ -5,13 +5,17 @@ function Header() {
   const navigate = useNavigate();
   const [userType, setUserType] = useState(localStorage.getItem('userType') || null);
   const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('token'));
+useEffect(() => {
+  // 定期检查认证状态
+  const interval = setInterval(() => {
+    const token = localStorage.getItem('token');
+    const userType = localStorage.getItem('userType');
+    setIsLoggedIn(!!token);
+    setUserType(userType);
+  }, 500);
 
-  useEffect(() => {
-    // 监听存储变化
-    const handleStorageChange = () => {
-      setUserType(localStorage.getItem('userType'));
-      setIsLoggedIn(!!localStorage.getItem('token'));
-    };
+  return () => clearInterval(interval);
+}, []);
 
     window.addEventListener('storage', handleStorageChange);
     return () => window.removeEventListener('storage', handleStorageChange);
@@ -133,6 +137,7 @@ function Header() {
 
 
 export default Header;
+
 
 
 
