@@ -14,6 +14,9 @@ useEffect(() => {
     setUserType(userType);
   }, 500);
 
+  return () => clearInterval(interval);
+}, []);
+
 
 
     window.addEventListener('storage', handleStorageChange);
@@ -136,6 +139,7 @@ useEffect(() => {
 
 
 export default Header;
+
 
 
 
