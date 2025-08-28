@@ -57,7 +57,7 @@ function PostJobForm() {
         <input className="input-field" name="title" placeholder="Job Title" value={formData.title} onChange={handleChange} required />
         <textarea className="input-field" name="description" placeholder="Description" value={formData.description} onChange={handleChange} required />
         <input className="input-field" name="location" placeholder="Location" value={formData.location} onChange={handleChange} required />
-         <input className="input-field" name="location" required />
+         <input className="input-field" name="location" placeholder="Company Name" required />
         <select className="input-field" name="type" value={formData.type} onChange={handleChange}>
           <option value="Full-time">Full-time</option>
           <option value="Part-time">Part-time</option>
