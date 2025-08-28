@@ -78,14 +78,7 @@ function Header() {
                   }}>
                     Dashboard
                   </Link>
-                  <Link to="/todo" style={{ 
-                    color: 'white', 
-                    textDecoration: 'none', 
-                    padding: '0.5rem 1rem', 
-                    borderRadius: '4px' 
-                  }}>
-                    My Tasks
-                  </Link>
+               
                 </>
               )}
               
@@ -132,3 +125,4 @@ function Header() {
 }
 
 export default Header;
+
