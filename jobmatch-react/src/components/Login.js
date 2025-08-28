@@ -35,8 +35,10 @@ function Login() {
         // 根据用户类型跳转
         if (userType === 'student') {
           navigate('/student-dashboard');
+            window.location.reload(); 
         } else {
           navigate('/employer-dashboard');
+            window.location.reload(); 
         }
       } else {
         // 注册
@@ -216,5 +218,6 @@ function Login() {
     </div>
   );
 }
+
 
 export default Login;
